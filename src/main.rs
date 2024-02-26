@@ -71,11 +71,16 @@ fn read_config(key: &str) -> Result<String> {
         Ok(val) => {
             log::info!("The data was obtained from the environment variable TNAP_ROOT");
             val
-        },
+        }
         Err(err) => {
             log::info!("{}", err);
             log::info!("The data was obtained from the current directory");
-            Path::new(".").canonicalize().unwrap().to_str().unwrap().to_string()
+            Path::new(".")
+                .canonicalize()
+                .unwrap()
+                .to_str()
+                .unwrap()
+                .to_string()
         }
     };
     log::info!("TNAP_ROOT: {}", tnap_root);
@@ -101,11 +106,16 @@ fn display_theme(theme: &str, ascii: bool) -> Result<()> {
         Ok(val) => {
             log::info!("The data was obtained from the environment variable TNAP_ROOT");
             val
-        },
+        }
         Err(err) => {
             log::info!("{}", err);
             log::info!("The data was obtained from the current directory");
-            Path::new(".").canonicalize().unwrap().to_str().unwrap().to_string()
+            Path::new(".")
+                .canonicalize()
+                .unwrap()
+                .to_str()
+                .unwrap()
+                .to_string()
         }
     };
     log::info!("TNAP_ROOT: {}", tnap_root);
@@ -124,7 +134,7 @@ fn display_theme(theme: &str, ascii: bool) -> Result<()> {
             let file_path = file.unwrap().path();
 
             // Checks if a file exists and if it is an image file.
-            if file_path.is_file() && is_image_file(&file_path){
+            if file_path.is_file() && is_image_file(&file_path) {
                 log::info!("image_path： {}", file_path.display());
             } else {
                 flag = true;
@@ -154,11 +164,16 @@ fn display_generated_image(prompt: &str, ascii: bool) -> Result<()> {
         Ok(val) => {
             log::info!("The data was obtained from the environment variable TNAP_ROOT");
             val
-        },
+        }
         Err(err) => {
             log::info!("{}", err);
             log::info!("The data was obtained from the current directory");
-            Path::new(".").canonicalize().unwrap().to_str().unwrap().to_string()
+            Path::new(".")
+                .canonicalize()
+                .unwrap()
+                .to_str()
+                .unwrap()
+                .to_string()
         }
     };
     log::info!("TNAP_ROOT: {}", tnap_root);
